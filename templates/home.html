@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- About the Author Section -->
+<section class="about-section">
+    <div class="about-header">
+        <div class="about-avatar">
+            <div class="avatar-initial">A</div>
+        </div>
+        <div class="about-title">
+            <h1>ANMOL SRIVASTAVA</h1>
+            <p class="institute-badge">
+                <i class="fas fa-university"></i> Indian Statistical Institute (ISI), Kolkata
+            </p>
+        </div>
+    </div>
+    
+    <div class="about-content">
+        <div class="about-text">
+            <p>Welcome to my digital knowledge hub! I'm a passionate Computer Science student at ISI Kolkata, dedicated to exploring the frontiers of technology and education.</p>
+            
+            <p>This platform is born from my belief that structured, accessible knowledge accelerates learning. Here, you'll find meticulously organized notes, resources, and insights spanning from foundational programming concepts to cutting-edge IoT implementations.</p>
+            
+            <p>My approach blends academic rigor with practical application, ensuring that each resource not only teaches concepts but also demonstrates their real-world implementation. Whether you're preparing for exams or building projects, this repository is designed to be your companion in the journey of technological mastery.</p>
+            
+            <div class="mt-4">
+                <h5><i class="fas fa-bullseye"></i> Mission Statement</h5>
+                <p>To democratize quality Computer Science education through well-structured, practical resources that bridge the gap between theoretical knowledge and real-world application.</p>
+            </div>
+        </div>
+        
+        <div class="tech-stack">
+            <h4><i class="fas fa-cogs"></i> Tech Stack</h4>
+            <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                
+                <span class="tech-tag">IoT</span>
+                <span class="tech-tag">Flask</span>
+                <span class="tech-tag">SQL</span>
+                
+                <span class="tech-tag">Git</span>
+                
+                <span class="tech-tag">Arduino</span>
+                <span class="tech-tag">Raspberry Pi</span>
+                <span class="tech-tag">LaTeX</span>
+                
+            </div>
+            
+            <div class="mt-4">
+                <h6><i class="fas fa-star"></i> Currently Exploring</h6>
+                <p>Machine Learning,Competitive Programming, Data Science, AI & IOT</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Feature Cards Section -->
+<div class="feature-cards">
+    <div class="feature-card">
+        <div class="card-icon class12">
+            <i class="fas fa-laptop-code"></i>
+        </div>
+        <h3>Class 12 CS Notes</h3>
+        <p>Complete CBSE syllabus with Python programming, database management, and computer networks. Structured chapter-wise with mark distribution.</p>
+        <a href="/class12" class="btn btn-tech mt-3">
+            <i class="fas fa-arrow-right"></i> Explore Notes
+        </a>
+    </div>
+    
+    <div class="feature-card">
+        <div class="card-icon class11">
+            <i class="fas fa-code"></i>
+        </div>
+        <h3>Class 11 CS Notes</h3>
+        <p>Fundamentals of programming, computer systems, and basic algorithms. Perfect foundation building for aspiring programmers.</p>
+        <a href="/class11" class="btn btn-tech mt-3">
+            <i class="fas fa-arrow-right"></i> Explore Notes
+        </a>
+    </div>
+    
+    <div class="feature-card">
+        <div class="card-icon iot">
+            <i class="fas fa-microchip"></i>
+        </div>
+        <h3>Internet of Things</h3>
+        <p>Projects, implementations, and research in IoT. From basic sensors to advanced smart systems with real-world applications.</p>
+        <a href="/iot" class="btn btn-tech mt-3">
+            <i class="fas fa-arrow-right"></i> Explore IoT
+        </a>
+    </div>
+</div>
+
+<!-- Stats Section -->
+<div class="row mt-5 pt-5">
+    <div class="col-md-3 col-6 text-center">
+        <div class="stat-box">
+            <h2 class="stat-number" data-count="50">0</h2>
+            <p class="stat-label">Study Hours</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6 text-center">
+        <div class="stat-box">
+            <h2 class="stat-number" data-count="12">0</h2>
+            <p class="stat-label">Topics Covered</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6 text-center">
+        <div class="stat-box">
+            <h2 class="stat-number" data-count="5">0</h2>
+            <p class="stat-label">Projects</p>
+        </div>
+    </div>
+    <div class="col-md-3 col-6 text-center">
+        <div class="stat-box">
+            <h2 class="stat-number" data-count="100">0</h2>
+            <p class="stat-label">% Commitment</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .btn-tech {
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-tech:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 212, 255, 0.3);
+        color: white;
+    }
+    
+    .stat-box {
+        padding: 20px;
+        background: var(--card-bg);
+        border-radius: 15px;
+        border: 1px solid rgba(0, 212, 255, 0.1);
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 10px;
+    }
+    
+    .stat-label {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+</style>
+
+<script>
+    // Animated counter for stats
+    document.addEventListener('DOMContentLoaded', function() {
+        const counters = document.querySelectorAll('.stat-number');
+        
+        counters.forEach(counter => {
+            const target = parseInt(counter.getAttribute('data-count'));
+            const increment = target / 50;
+            let current = 0;
+            
+            const updateCounter = () => {
+                if (current < target) {
+                    current += increment;
+                    counter.textContent = Math.ceil(current);
+                    setTimeout(updateCounter, 30);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+            
+            updateCounter();
+        });
+    });
+</script>
+{% endblock %}

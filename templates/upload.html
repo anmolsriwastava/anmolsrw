@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="upload-container">
+    <h1><i class="fas fa-cloud-upload-alt"></i> Upload Notes</h1>
+    <p class="lead">Share your study materials with others</p>
+    
+    <div class="card">
+        <div class="card-body">
+            <form method="POST" action="/upload-note" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label">Note Title *</label>
+                    <input type="text" class="form-control" name="title" 
+                           placeholder="e.g., Python Functions Complete Notes" required>
+                </div>
+                
+                <div class="mb-3">
+                    <label class="form-label">Description</label>
+                    <textarea class="form-control" name="description" rows="3"
+                              placeholder="Brief description of what this note contains..."></textarea>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">Category *</label>
+                        <select class="form-select" name="category" required>
+                            <option value="Class 12 CS">Class 12 Computer Science</option>
+                            <option value="Class 11 CS">Class 11 Computer Science</option>
+                            <option value="IOT">Internet of Things</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <label class="form-label">File *</label>
+                        <input type="file" class="form-control" name="file" 
+                               accept=".pdf,.docx,.txt,.jpg,.png" required>
+                        <small class="form-text text-muted">
+                            Supported: PDF, DOCX, TXT, JPG, PNG (Max 16MB)
+                        </small>
+                    </div>
+                </div>
+                
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                        <i class="fas fa-upload"></i> Upload Note
+                    </button>
+                    <a href="/" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
