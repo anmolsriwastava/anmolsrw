@@ -463,3 +463,68 @@ footer {
     background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+/* ===== SIMPLE WHITE BOLD TEXT ===== */
+/* Force all tables to black with white text */
+.table, .table-dark, .table-hover, 
+.table-striped, .table-bordered {
+    background: #000000 !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;  /* Bold text */
+}
+
+/* Force ALL text in tables to be white and bold */
+.table td, .table th, .table tr,
+.table thead th, .table tbody td {
+    color: #ffffff !important;
+    background: #000000 !important;
+    font-weight: 600 !important;  /* Bold text */
+    border-color: #444444 !important;
+}
+
+/* Remove ALL special effects */
+.table-glow, .table-primary, .table-info,
+.table-warning, .table-success, .table-total {
+    background: #000000 !important;
+    color: #ffffff !important;
+    text-shadow: none !important;
+    box-shadow: none !important;
+}
+
+/* Simple hover effect - just slightly lighter */
+.table-hover tbody tr:hover {
+    background: #222222 !important;
+}
+
+/* Simple headers */
+.table thead th {
+    background: #111111 !important;
+    border-bottom: 2px solid #ffffff !important;
+    font-weight: 700 !important;  /* Extra bold for headers */
+}
+
+/* Remove ALL gradients from buttons */
+.btn-outline-primary, .btn-outline-warning,
+.btn-detailed, .btn-short {
+    background: transparent !important;
+    border: 1px solid !important;
+    font-weight: 600 !important;
+}
+
+.btn-outline-primary {
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+.btn-outline-warning {
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Simple alerts */
+.alert-info, .alert-secondary {
+    background: #222222 !important;
+    color: #ffffff !important;
+    border: 1px solid #444444 !important;
+    font-weight: 600 !important;
+}
