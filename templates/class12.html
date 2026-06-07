@@ -1,307 +1,194 @@
 {% extends "base.html" %}
 {% block extra_css %}
 <style>
-  body { background: #f5f5f5 !important; color: #1a1a1a !important; }
-  main { background: #f5f5f5; }
+  body { background: #fff; color: #333; }
+  .notes-table { width: 100%; border-collapse: collapse; }
+  .notes-table th, .notes-table td { padding: 12px 16px; border-bottom: 1px solid #eee; }
+  .notes-table th { font-weight: 600; color: #666; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
+  .notes-table tr:hover { background: #fafafa; }
+  .marks-badge { background: #f0f0f0; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
+  .download-btn { color: #0066cc; text-decoration: none; font-size: 0.9rem; }
+  .download-btn:hover { text-decoration: underline; }
+  .coming-soon { color: #999; font-style: italic; font-size: 0.9rem; }
+  .section-card { border: 1px solid #eee; border-radius: 4px; margin-bottom: 24px; }
+  .section-card h3 { padding: 16px; margin: 0; border-bottom: 1px solid #eee; font-size: 1.1rem; }
+  .section-card .content { padding: 16px; }
+  .resource-link { display: block; padding: 8px 0; color: #444; text-decoration: none; }
+  .resource-link:hover { color: #0066cc; }
+  .total-row { background: #fafafa; font-weight: 600; }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <h1><i class="fas fa-laptop-code"></i> Class 12 Computer Science Notes</h1>
-    <p class="lead">Complete notes for CBSE Class 12 Computer Science with Python</p>
+<h2>Class 12 Computer Science Notes</h2>
+<p>CBSE Class 12 Computer Science with Python — complete notes and resources.</p>
+
+<!-- Mark Distribution -->
+<div class="section-card">
+  <h3>CBSE Mark Distribution</h3>
+  <div class="content">
+    <table class="notes-table">
+      <thead>
+        <tr>
+          <th>Unit</th>
+          <th>Unit Name</th>
+          <th>Marks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Computational Thinking and Programming – 2</td>
+          <td><span class="marks-badge">40</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Computer Networks</td>
+          <td><span class="marks-badge">10</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Database Management</td>
+          <td><span class="marks-badge">20</span></td>
+        </tr>
+        <tr class="total-row">
+          <td colspan="2" style="text-align: right;">Total</td>
+          <td><span class="marks-badge">70</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<!-- Replace the entire table section with this -->
-<div class="card mb-4 border-tech">
-    <div class="card-header bg-dark text-white">
-        <h4 class="mb-0 text-white"><i class="fas fa-chart-pie"></i> CBSE Mark Distribution</h4>
-    </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead class="table-glow">
-                    <tr>
-                        <th>Unit No.</th>
-                        <th>Unit Name</th>
-                        <th>Marks</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>1</strong></td>
-                        <td><strong>Computational Thinking and Programming – 2</strong></td>
-                        <td><span class="badge-mark">40</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>2</strong></td>
-                        <td><strong>Computer Networks</strong></td>
-                        <td><span class="badge-mark">10</span></td>
-                    </tr>
-                    <tr>
-                        <td><strong>3</strong></td>
-                        <td><strong>Database Management</strong></td>
-                        <td><span class="badge-mark">20</span></td>
-                    </tr>
-                    <tr class="table-total">
-                        <td colspan="2" class="text-end"><strong>Total</strong></td>
-                        <td><strong class="text-tech">70</strong></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
+<!-- Chapter-wise Notes -->
+<div class="section-card">
+  <h3>Chapter-wise Notes</h3>
+  <div class="content">
+    <table class="notes-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Chapter</th>
+          <th>Notes</th>
+          <th>Weightage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>
+            <strong>Revision Tour - 1</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">Python basics, variables, data types, operators</span>
+          </td>
+          <td>
+            <a href="{{ url_for('static', filename='notes/Python_Revision_Tour_1.pdf') }}" class="download-btn" target="_blank">Download PDF</a>
+          </td>
+          <td>~8 marks</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>
+            <strong>Revision Tour - 2</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">Control structures, loops, functions basics</span>
+          </td>
+          <td><span class="coming-soon">Coming soon</span></td>
+          <td>~7 marks</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>
+            <strong>Functions</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">User-defined functions, parameters, recursion</span>
+          </td>
+          <td><span class="coming-soon">Coming soon</span></td>
+          <td>~10 marks</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>
+            <strong>File Handling</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">Text files, binary files, file operations</span>
+          </td>
+          <td><span class="coming-soon">Coming soon</span></td>
+          <td>~8 marks</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>
+            <strong>Exception Handling</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">try-except, finally, custom exceptions</span>
+          </td>
+          <td><span class="coming-soon">Coming soon</span></td>
+          <td>~5 marks</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>
+            <strong>Data Structures: Stack</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">LIFO, push/pop operations, applications</span>
+          </td>
+          <td><span class="coming-soon">Coming soon</span></td>
+          <td>~7 marks</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>
+            <strong>Database Management: MySQL</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">SQL commands, queries, normalization</span>
+          </td>
+          <td><span class="coming-soon">Coming soon</span></td>
+          <td>~12 marks</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>
+            <strong>Python-Database Interaction</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">MySQL connector, CRUD operations</span>
+          </td>
+          <td><span class="coming-soon">Coming soon</span></td>
+          <td>~8 marks</td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>
+            <strong>Computer Networks - 1</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">Network types, topologies, protocols</span>
+          </td>
+          <td><span class="coming-soon">Coming soon</span></td>
+          <td>~5 marks</td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>
+            <strong>Computer Networks - 2</strong><br>
+            <span style="color: #666; font-size: 0.9rem;">Network devices, security, internet</span>
+          </td>
+          <td><span class="coming-soon">Coming soon</span></td>
+          <td>~5 marks</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 
-<!-- Chapter-wise Notes Table -->
-<div class="card">
-    <div class="card-header bg-success text-white">
-        <h4 class="mb-0"><i class="fas fa-book-open"></i> Chapter-wise Notes</h4>
+<!-- Resources -->
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+  <div class="section-card">
+    <h3>Sample Papers</h3>
+    <div class="content">
+      <a href="#" class="resource-link">CBSE Sample Paper 2024</a>
+      <a href="#" class="resource-link">Previous Year Paper 2023</a>
+      <a href="#" class="resource-link">Important Questions</a>
     </div>
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class="table table-hover table-striped">
-                <thead>
-                    <tr>
-                        <th width="10%">Chapter</th>
-                        <th width="40%">Chapter Name</th>
-                        <th width="30%">Download Notes</th>
-                        <th width="20%">Board Weightage (Blueprint/Just for an Idea) </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Chapter 1 -->
-                    <tr>
-                        <td>1</td>
-                        <td>
-                            <strong>Revision Tour - 1</strong><br>
-                            <small class="text-muted">Python basics, variables, data types, operators</small>
-                        </td>
-                        <td>
-                            <a href="{{ url_for('static', filename='notes/Python_Revision_Tour_1.pdf') }}" 
-                               class="btn btn-sm btn-outline-primary" target="_blank">
-                                <i class="fas fa-download"></i> Download Notes
-                            </a>
-                        </td>
-                        <td>~8 Marks</td>
-                    </tr>
-                    
-                    <!-- Chapter 2 -->
-                    <tr>
-                        <td>2</td>
-                        <td>
-                            <strong>Revision Tour - 2</strong><br>
-                            <small class="text-muted">Control structures, loops, functions basics</small>
-                        </td>
-                        <td>
-                            <div class="alert alert-info p-2 mb-0">
-                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
-                            </div>
-                        </td>
-                        <td>~7 Marks</td>
-                    </tr>
-                    
-                    <!-- Chapter 3 -->
-                    <tr>
-                        <td>3</td>
-                        <td>
-                            <strong>Functions</strong><br>
-                            <small class="text-muted">User-defined functions, parameters, recursion</small>
-                        </td>
-                        <td>
-                            <div class="alert alert-info p-2 mb-0">
-                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
-                            </div>
-                        </td>
-                        <td>~10 Marks</td>
-                    </tr>
-                    
-                    <!-- Chapter 4 -->
-                    <tr>
-                        <td>4</td>
-                        <td>
-                            <strong>File Handling</strong><br>
-                            <small class="text-muted">Text files, binary files, file operations</small>
-                        </td>
-                        <td>
-                            <div class="alert alert-info p-2 mb-0">
-                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
-                            </div>
-                        </td>
-                        <td>~8 Marks</td>
-                    </tr>
-                    
-                    <!-- Chapter 5 -->
-                    <tr>
-                        <td>5</td>
-                        <td>
-                            <strong>Exception Handling</strong><br>
-                            <small class="text-muted">try-except, finally, custom exceptions</small>
-                        </td>
-                        <td>
-                            <div class="alert alert-info p-2 mb-0">
-                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
-                            </div>
-                        </td>
-                        <td>~5 Marks</td>
-                    </tr>
-                    
-                    <!-- Chapter 6 -->
-                    <tr>
-                        <td>6</td>
-                        <td>
-                            <strong>Data Structures: Stack</strong><br>
-                            <small class="text-muted">LIFO, push/pop operations, applications</small>
-                        </td>
-                        <td>
-                            <div class="alert alert-info p-2 mb-0">
-                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
-                            </div>
-                        </td>
-                        <td>~7 Marks</td>
-                    </tr>
-                    
-                    <!-- Chapter 7 -->
-                    <tr>
-                        <td>7</td>
-                        <td>
-                            <strong>Database Management: MySQL</strong><br>
-                            <small class="text-muted">SQL commands, queries, normalization</small>
-                        </td>
-                        <td>
-                            <div class="alert alert-info p-2 mb-0">
-                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
-                            </div>
-                        </td>
-                        <td>~12 Marks</td>
-                    </tr>
-                    
-                    <!-- Chapter 8 -->
-                    <tr>
-                        <td>8</td>
-                        <td>
-                            <strong>Python-Database Interaction</strong><br>
-                            <small class="text-muted">MySQL connector, CRUD operations</small>
-                        </td>
-                        <td>
-                            <div class="alert alert-info p-2 mb-0">
-                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
-                            </div>
-                        </td>
-                        <td>~8 Marks</td>
-                    </tr>
-                    
-                    <!-- Chapter 9 -->
-                    <tr>
-                        <td>9</td>
-                        <td>
-                            <strong>Computer Networks - 1</strong><br>
-                            <small class="text-muted">Network types, topologies, protocols</small>
-                        </td>
-                        <td>
-                            <div class="alert alert-info p-2 mb-0">
-                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
-                            </div>
-                        </td>
-                        <td>~5 Marks</td>
-                    </tr>
-                    
-                    <!-- Chapter 10 -->
-                    <tr>
-                        <td>10</td>
-                        <td>
-                            <strong>Computer Networks - 2</strong><br>
-                            <small class="text-muted">Network devices, security, internet</small>
-                        </td>
-                        <td>
-                            <div class="alert alert-info p-2 mb-0">
-                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
-                            </div>
-                        </td>
-                        <td>~5 Marks</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+  </div>
+  
+  <div class="section-card">
+    <h3>Video Resources</h3>
+    <div class="content">
+      <a href="#" class="resource-link">Python Tutorial Series</a>
+      <a href="#" class="resource-link">MySQL Complete Course</a>
+      <a href="#" class="resource-link">Networking Concepts</a>
     </div>
+  </div>
 </div>
-
-<!-- Additional Resources -->
-<div class="row mt-4">
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header bg-info text-white">
-                <h5 class="mb-0"><i class="fas fa-file-pdf"></i> Sample Papers</h5>
-            </div>
-            <div class="card-body">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <a href="#"><i class="fas fa-download"></i> CBSE Sample Paper 2024</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fas fa-download"></i> Previous Year Paper 2023</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fas fa-download"></i> Important Questions</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-md-6">
-        <div class="card">
-            <div class="card-header bg-warning text-white">
-                <h5 class="mb-0"><i class="fas fa-video"></i> Video Resources</h5>
-            </div>
-            <div class="card-body">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">
-                        <a href="#"><i class="fab fa-youtube"></i> Python Tutorial Series</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fab fa-youtube"></i> MySQL Complete Course</a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#"><i class="fab fa-youtube"></i> Networking Concepts</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    .table th {
-        background-color: #f8f9fa;
-        font-weight: 600;
-    }
-    
-    .table-hover tbody tr:hover {
-        background-color: rgba(0, 123, 255, 0.1);
-        cursor: pointer;
-    }
-    
-    .card-header {
-        border-radius: 8px 8px 0 0 !important;
-    }
-</style>
-
-<script>
-    // Add click functionality to table rows
-    document.addEventListener('DOMContentLoaded', function() {
-        const tableRows = document.querySelectorAll('.table-hover tbody tr');
-        
-        tableRows.forEach(row => {
-            const downloadBtn = row.querySelector('a.btn');
-            if (downloadBtn && !downloadBtn.href.includes('#')) {
-                row.addEventListener('click', function(e) {
-                    if (e.target.tagName !== 'A') {
-                        downloadBtn.click();
-                    }
-                });
-            }
-        });
-    });
-</script>
 {% endblock %}
