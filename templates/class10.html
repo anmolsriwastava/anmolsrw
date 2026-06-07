@@ -1,0 +1,611 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-header">
+    <h1><i class="fas fa-desktop"></i> Class 10 Information Technology</h1>
+    <p class="lead">CBSE Subject Code: 402 </p>
+</div>
+<style>
+    /* ===== FORCE HIGH VISIBILITY ===== */
+    .table-dark {
+        --bs-table-bg: rgba(10, 10, 20, 0.98) !important;
+        --bs-table-color: #ffffff !important;
+        --bs-table-border-color: rgba(0, 212, 255, 0.5) !important;
+    }
+    
+    /* Marks column - NEON GREEN */
+    .marks-column {
+        color: #00ff88 !important;
+        font-weight: 800 !important;
+        font-size: 1.2rem;
+        text-shadow: 0 0 15px rgba(0, 255, 136, 0.8);
+        background: rgba(0, 255, 136, 0.12) !important;
+        text-align: center;
+        border-left: 3px solid #00ff88 !important;
+        border-right: 3px solid #00ff88 !important;
+    }
+    
+    /* Table header - BRIGHT CYAN */
+    .table-dark thead th {
+        background: linear-gradient(45deg, 
+            rgba(0, 212, 255, 0.7), 
+            rgba(123, 97, 255, 0.7)) !important;
+        color: #ffffff !important;
+        font-weight: 800;
+        letter-spacing: 1px;
+        border-bottom: 3px solid #00d4ff !important;
+    }
+    
+    /* Part headers - EXTRA BRIGHT */
+    .table-primary td {
+        background: rgba(13, 110, 253, 0.3) !important;
+        color: #80d0ff !important;
+        font-weight: 800;
+        font-size: 1.1rem;
+    }
+    
+    .table-info td {
+        background: rgba(13, 202, 240, 0.3) !important;
+        color: #00e5ff !important;
+        font-weight: 800;
+        font-size: 1.1rem;
+    }
+    
+    .table-warning td {
+        background: rgba(255, 193, 7, 0.3) !important;
+        color: #ffd700 !important;
+        font-weight: 800;
+        font-size: 1.1rem;
+    }
+    
+    .table-success td {
+        background: rgba(25, 135, 84, 0.3) !important;
+        color: #00ff95 !important;
+        font-weight: 800;
+        font-size: 1.1rem;
+    }
+    
+    /* Text inside cells - BRIGHTER */
+    .table-dark td {
+        color: #f0f0ff !important;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        font-weight: 500;
+    }
+    
+    /* Hover effect - GLOW */
+    .table-dark tbody tr:hover {
+        background: rgba(0, 212, 255, 0.3) !important;
+        box-shadow: 0 0 20px rgba(0, 212, 255, 0.5) !important;
+    }
+    
+    /* Make all numbers POP */
+    td strong {
+        color: #ffffff !important;
+        text-shadow: 0 0 10px rgba(255,255,255,0.7);
+        font-weight: 900 !important;
+    }
+</style>
+
+<!-- Syllabus Table -->
+<div class="card mb-4 border-tech">
+    <div class="card-header bg-tech">
+        <h4 class="mb-0 text-white"><i class="fas fa-book"></i> CBSE Syllabus - Class 10 IT (402)</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover" style="
+    background: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #333333 !important;
+">
+                <thead class="table-glow">
+                    <tr>
+                        <th>UNITS</th>
+                        <th>MAX. MARKS<br><small>Theory + Practical</small></th>
+                        <th>PART</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- PART A: Employability Skills -->
+                    <tr class="table-primary">
+                        <td colspan="3" class="text-center">
+                            <strong>PART A: EMPLOYABILITY SKILLS</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Unit 1: Communication Skills-II</td>
+                        <td>2</td>
+                        <td rowspan="5" class="align-middle text-center">A</td>
+                    </tr>
+                    <tr>
+                        <td>Unit 2: Self-Management Skills-II</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Unit 3: ICT Skills-II</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>Unit 4: Entrepreneurial Skills-II</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>Unit 5: Green Skills-II</td>
+                        <td>1</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td><strong>Total (Part A)</strong></td>
+                        <td><strong>10</strong></td>
+                        <td></td>
+                    </tr>
+
+                    <!-- PART B: Subject Specific Skills -->
+                    <tr class="table-info">
+                        <td colspan="3" class="text-center">
+                            <strong>PART B: SUBJECT SPECIFIC SKILLS</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Unit 1: Digital Documentation (Advanced) using LibreOffice Writer</td>
+                        <td>8</td>
+                        <td rowspan="4" class="align-middle text-center">B</td>
+                    </tr>
+                    <tr>
+                        <td>Unit 2: Electronic Spreadsheet (Advanced) using LibreOffice Calc</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Unit 3: Database Management System using LibreOffice Base</td>
+                        <td>12</td>
+                    </tr>
+                    <tr>
+                        <td>Unit 4: Maintain Healthy, Safe and Secure Working Environment</td>
+                        <td>10</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td><strong>Total (Part B)</strong></td>
+                        <td><strong>40</strong></td>
+                        <td></td>
+                    </tr>
+
+                    <!-- PART C: Practical Work -->
+                    <tr class="table-warning">
+                        <td colspan="3" class="text-center">
+                            <strong>PART C: PRACTICAL WORK</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Digital Documentation (Advanced) using LibreOffice Writer</td>
+                        <td>5</td>
+                        <td rowspan="4" class="align-middle text-center">C</td>
+                    </tr>
+                    <tr>
+                        <td>Electronic Spreadsheet (Advanced) using LibreOffice Calc</td>
+                        <td>5</td>
+                    </tr>
+                    <tr>
+                        <td>Database Management System using LibreOffice Base</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>Viva Voce</td>
+                        <td>10</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td><strong>Total (Part C)</strong></td>
+                        <td><strong>30</strong></td>
+                        <td></td>
+                    </tr>
+
+                    <!-- PART D: Project Work -->
+                    <tr class="table-success">
+                        <td colspan="3" class="text-center">
+                            <strong>PART D: PROJECT WORK/FIELD VISIT</strong>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Project Work/Field Visit</td>
+                        <td>10</td>
+                        <td rowspan="2" class="align-middle text-center">D</td>
+                    </tr>
+                    <tr>
+                        <td>Portfolio/Practical File</td>
+                        <td>10</td>
+                    </tr>
+                    <tr class="table-secondary">
+                        <td><strong>Total (Part D)</strong></td>
+                        <td><strong>20</strong></td>
+                        <td></td>
+                    </tr>
+
+                    <!-- GRAND TOTAL -->
+                    <tr class="table-total">
+                        <td><strong>GRAND TOTAL</strong></td>
+                        <td><strong>100</strong></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Chapter-wise Notes Table - UPDATED WITH 3 COLUMNS -->
+<div class="card mb-4 border-tech">
+    <div class="card-header bg-tech">
+        <h4 class="mb-0 text-white"><i class="fas fa-book-open"></i> Chapter-wise Notes & Resources</h4>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-dark table-hover table-notes">
+                <thead class="table-glow">
+                    <tr>
+                        <th width="10%">Unit</th>
+                        <th width="40%">Chapter Name & Topics</th>
+                        <th width="17%">Detailed Notes</th>
+                        <th width="17%">Short Notes</th>
+                        <th width="16%">Practical Files</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- PART A: Employability Skills (2 columns only) -->
+                    <tr class="table-info">
+                        <td colspan="5"><strong>PART A: EMPLOYABILITY SKILLS</strong></td>
+                    </tr>
+                    
+                    <!-- Unit 1 -->
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <strong>Communication Skills-II</strong><br>
+                            <small class="text-muted">Methods of communication, writing skills</small>
+                        </td>
+                        <td colspan="2">
+                            <div class="alert alert-info p-2 mb-0">
+                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="alert alert-secondary p-2 mb-0">
+                                <small>No practical files</small>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Unit 2 -->
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <strong>Self-Management Skills-II</strong><br>
+                            <small class="text-muted">Stress management, goal setting</small>
+                        </td>
+                        <td colspan="2">
+                            <div class="alert alert-info p-2 mb-0">
+                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="alert alert-secondary p-2 mb-0">
+                                <small>No practical files</small>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Unit 3 -->
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <strong>ICT Skills-II</strong><br>
+                            <small class="text-muted">Computer components, OS, internet</small>
+                        </td>
+                        <td colspan="2">
+                            <div class="alert alert-info p-2 mb-0">
+                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="alert alert-secondary p-2 mb-0">
+                                <small>No practical files</small>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Unit 4 -->
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <strong>Entrepreneurial Skills-II</strong><br>
+                            <small class="text-muted">Business ideas, market research</small>
+                        </td>
+                        <td colspan="2">
+                            <div class="alert alert-info p-2 mb-0">
+                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="alert alert-secondary p-2 mb-0">
+                                <small>No practical files</small>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Unit 5 -->
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <strong>Green Skills-II</strong><br>
+                            <small class="text-muted">Environmental conservation</small>
+                        </td>
+                        <td colspan="2">
+                            <div class="alert alert-info p-2 mb-0">
+                                <small><i class="fas fa-clock"></i> Notes coming soon</small>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="alert alert-secondary p-2 mb-0">
+                                <small>No practical files</small>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- PART B: Subject Specific Skills (3 columns) -->
+                    <tr class="table-warning part-b-section">
+                        <td colspan="5"><strong>PART B: SUBJECT SPECIFIC SKILLS</strong></td>
+                    </tr>
+                    
+                    <!-- Unit 1 -->
+                    <!-- Unit 1 -->
+<tr>
+    <td>1</td>
+    <td>
+        <strong>Digital Documentation (Advanced) - LibreOffice Writer</strong><br>
+        <small class="text-muted">Mail merge, templates, styles, table of contents</small>
+    </td>
+    <!-- Detailed Notes Column -->
+    <td>
+        <a href="/static/notes/Digital_Doc_Class10.pdf" 
+           class="btn btn-sm btn-outline-primary w-100" 
+           target="_blank"
+           style="background: black; color: white; border-color: white; font-weight: bold;">
+            <i class="fas fa-book"></i> Download
+        </a>
+    </td>
+    <!-- Short Notes Column -->
+    <td>
+        <a href="/static/notes/Digital_Doc_Class10_short.pdf" 
+           class="btn btn-sm btn-outline-warning w-100" 
+           target="_blank"
+           style="background: black; color: white; border-color: white; font-weight: bold;">
+            <i class="fas fa-bolt"></i> Quick
+        </a>
+    </td>
+    <!-- Practical Files Column -->
+    <td>
+        <div class="alert alert-info p-2 mb-0" 
+             style="background: #222; color: white; border-color: #444; font-weight: bold;">
+            <small><i class="fas fa-clock"></i> Coming soon</small>
+        </div>
+    </td>
+</tr>
+                            
+                    
+                    <!-- Unit 2 -->
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <strong>Electronic Spreadsheet (Advanced)</strong><br>
+                            <small class="text-muted">LibreOffice Calc - Functions, charts, macros</small>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="notes-header">Detailed Notes</span>
+                                <div class="alert alert-info p-2 mb-0">
+                                    <small><i class="fas fa-clock"></i> Coming soon</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="notes-header">Short Notes</span>
+                                <div class="alert alert-info p-2 mb-0">
+                                    <small><i class="fas fa-clock"></i> Coming soon</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="notes-header">Practical Files</span>
+                                <div class="alert alert-info p-2 mb-0">
+                                    <small><i class="fas fa-clock"></i> Coming soon</small>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Unit 3 -->
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <strong>Database Management System</strong><br>
+                            <small class="text-muted">LibreOffice Base - Tables, queries, forms</small>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="notes-header">Detailed Notes</span>
+                                <div class="alert alert-info p-2 mb-0">
+                                    <small><i class="fas fa-clock"></i> Coming soon</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="notes-header">Short Notes</span>
+                                <div class="alert alert-info p-2 mb-0">
+                                    <small><i class="fas fa-clock"></i> Coming soon</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="notes-header">Practical Files</span>
+                                <div class="alert alert-info p-2 mb-0">
+                                    <small><i class="fas fa-clock"></i> Coming soon</small>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Unit 4 -->
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <strong>Web Applications and Security</strong><br>
+                            <small class="text-muted">Internet safety, cyber ethics, secure browsing</small>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="notes-header">Detailed Notes</span>
+                                <div class="alert alert-info p-2 mb-0">
+                                    <small><i class="fas fa-clock"></i> Coming soon</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="notes-header">Short Notes</span>
+                                <div class="alert alert-info p-2 mb-0">
+                                    <small><i class="fas fa-clock"></i> Coming soon</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex flex-column">
+                                <span class="notes-header">Practical Files</span>
+                                <div class="alert alert-info p-2 mb-0">
+                                    <small><i class="fas fa-clock"></i> Coming soon</small>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Additional Resources -->
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-info text-white">
+                <h5 class="mb-0"><i class="fas fa-file-pdf"></i> Important Documents</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="#"><i class="fas fa-download"></i> CBSE Official Syllabus PDF</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="fas fa-download"></i> Sample Question Paper 2025</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="fas fa-download"></i> Marking Scheme</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="fas fa-download"></i> Practical Exam Guidelines</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-warning text-white">
+                <h5 class="mb-0"><i class="fas fa-download"></i> Software & Tools</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="https://www.libreoffice.org/download" target="_blank">
+                            <i class="fas fa-download"></i> LibreOffice Suite
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="fas fa-download"></i> Practice Templates Pack</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="fas fa-download"></i> Sample Databases</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="#"><i class="fas fa-download"></i> Project Samples</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<style>
+    .table-primary {
+        background-color: rgba(13, 110, 253, 0.1);
+    }
+    
+    .table-info {
+        background-color: rgba(13, 202, 240, 0.1);
+    }
+    
+    .table-warning {
+        background-color: rgba(255, 193, 7, 0.1);
+    }
+    
+    .table-success {
+        background-color: rgba(25, 135, 84, 0.1);
+    }
+    
+    .table-total {
+        background: linear-gradient(45deg, #6f42c1, #d63384);
+        color: white;
+        font-size: 1.1rem;
+    }
+    
+    .table-dark td, .table-dark th {
+        border-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .align-middle {
+        vertical-align: middle !important;
+    }
+    
+    .text-muted {
+        color: #6c757d !important;
+    }
+    
+    .alert-secondary {
+        background-color: rgba(108, 117, 125, 0.1);
+        border-color: rgba(108, 117, 125, 0.2);
+        color: #6c757d;
+    }
+</style>
+
+<script>
+    // Add row click functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const tableRows = document.querySelectorAll('.table-hover tbody tr');
+        
+        tableRows.forEach(row => {
+            const downloadBtn = row.querySelector('a.btn:not(.btn-outline-secondary)');
+            if (downloadBtn && downloadBtn.href && !downloadBtn.href.includes('#')) {
+                row.style.cursor = 'pointer';
+                row.addEventListener('click', function(e) {
+                    if (!e.target.tagName === 'A' && !e.target.closest('a')) {
+                        downloadBtn.click();
+                    }
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}
