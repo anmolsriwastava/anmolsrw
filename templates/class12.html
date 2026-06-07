@@ -81,7 +81,7 @@
             <span style="color: #666; font-size: 0.9rem;">Python basics, variables, data types, operators</span>
           </td>
           <td>
-            <a href="{{ url_for('static', filename='notes/Python_Revision_Tour_1.pdf') }}" class="download-btn" target="_blank">Download PDF</a>
+            <a href="{{ url_for('static', filename='notes/Python_Revision_Tour_1.pdf') }}" class="download-btn" onclick="openPDF(this.href); return false;">View Notes</a>
           </td>
           <td>~8 marks</td>
         </tr>
@@ -191,4 +191,19 @@
     </div>
   </div>
 </div>
+<!-- PDF Viewer Modal -->
+<div id="pdfModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999;">
+  <div style="position:relative; width:90%; height:90%; margin:2% auto; background:#fff;">
+    <button onclick="document.getElementById('pdfModal').style.display='none'" 
+            style="position:absolute; top:-35px; right:0; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">✕ close</button>
+    <iframe id="pdfFrame" src="" width="100%" height="100%" style="border:none;"></iframe>
+  </div>
+</div>
+
+<script>
+function openPDF(url) {
+  document.getElementById('pdfFrame').src = url;
+  document.getElementById('pdfModal').style.display = 'block';
+}
+</script>
 {% endblock %}
