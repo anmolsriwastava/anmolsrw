@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block title %}Anmol Sriwastava{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="avatar-wrap">
+      <img src="{{ url_for('static', filename='profile.jpg') }}" alt="Anmol" class="avatar-img" onerror="this.style.display='none'; document.querySelector('.avatar-fallback').style.display='flex';">
+      <div class="avatar-fallback">A</div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <p class="hero-tag">statistical data science · isi kolkata</p>
+    <h1 class="hero-name">Anmol<br><em>Sriwastava</em></h1>
+    <p class="hero-bio">
+      I write about CS, AI, Data, Mathematics — sometimes robotics and IoT and whatever I'm currently learning.
+      Open to contributing and collaborating.
+    </p>
+    <div class="hero-cta">
+      <a href="/about" class="btn-primary">about me</a>
+      <a href="/projects" class="btn-ghost">see projects →</a>
+    </div>
+  </div>
+</section>
+
+<section class="section-divider">
+  <span>what's here</span>
+</section>
+
+<section class="cards-grid">
+
+  <a href="/gyaan" class="card">
+    <div class="card-icon">📖</div>
+    <h3>Gyaan</h3>
+    <p>Structured notes for Class 10 IT, Class 11 CS, Class 12 CS. For board prep and beyond.</p>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a href="/iot" class="card">
+    <div class="card-icon">🤖</div>
+    <h3>Robotics & IoT</h3>
+    <p>Arduino, Raspberry Pi, sensors, circuits. Things I've built and broken.</p>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a href="/projects" class="card">
+    <div class="card-icon">⚙️</div>
+    <h3>Projects</h3>
+    <p>Data science, ML experiments, tools I've made. Work in progress, always.</p>
+    <span class="card-arrow">→</span>
+  </a>
+
+  <a href="/blog" class="card">
+    <div class="card-icon">✍️</div>
+    <h3>Blog</h3>
+    <p>Long-form thoughts on math, code, learning, and whatever's on my mind.</p>
+    <span class="card-arrow">→</span>
+  </a>
+
+</section>
+
+<section class="currently-section">
+  <p class="currently-label">currently exploring</p>
+  <div class="tags">
+    <span>Machine Learning</span>
+    <span>Competitive Programming</span>
+    <span>Data Science</span>
+    <span>AI</span>
+    <span>IoT</span>
+    <span>LaTeX</span>
+  </div>
+</section>
+
+{% endblock %}
