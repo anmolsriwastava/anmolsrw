@@ -30,10 +30,9 @@ app = Flask(__name__)
 def home():
     return render_template('home.html')
 
-# Gyaan hub
-@app.route('/gyaan')
-def gyaan():
-    return render_template('gyaan.html')
+@app.route('/resources')
+def resources():
+    return render_template('resources.html')
 
 # Individual class pages (keep old URLs working too)
 @app.route('/class12')
