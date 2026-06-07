@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}Anmol Sriwastava{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@300;400;500&family=Geist:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="/" class="logo">anmolsrw<span class="logo-dot">.</span></a>
+    <nav class="main-nav">
+      <a href="/" class="{{ 'active' if request.path == '/' }}">home</a>
+      <a href="/gyaan" class="{{ 'active' if '/gyaan' in request.path or '/class' in request.path }}">gyaan</a>
+      <a href="/iot" class="{{ 'active' if '/iot' in request.path }}">robotics & iot</a>
+      <a href="/projects" class="{{ 'active' if '/projects' in request.path }}">projects</a>
+      <a href="/blog" class="{{ 'active' if '/blog' in request.path }}">blog</a>
+      <a href="/about" class="{{ 'active' if '/about' in request.path }}">about</a>
+    </nav>
+    <button class="nav-toggle" onclick="document.querySelector('.main-nav').classList.toggle('open')">☰</button>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <span>anmol sriwastava · isi kolkata</span>
+    <div class="footer-links">
+      <a href="https://github.com/anmolsriwastava" target="_blank">github</a>
+      <a href="/blog">blog</a>
+      <a href="/about">about</a>
+    </div>
+  </footer>
+
+</body>
+</html>
