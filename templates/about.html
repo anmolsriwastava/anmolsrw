@@ -1,50 +1,221 @@
 {% extends "base.html" %}
 {% block title %}About · Anmol Sriwastava{% endblock %}
+
+{% block extra_css %}
+<style>
+  .about-section {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 2rem 80px;
+  }
+
+  .about-section h1 {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-section h1 em {
+    color: var(--accent);
+    font-style: italic;
+  }
+
+  .about-section p {
+    font-size: 1.05rem;
+    line-height: 1.9;
+    color: #c0c0c0;
+    margin-bottom: 1.4rem;
+  }
+
+  .about-section p strong {
+    color: #ffffff;
+    font-weight: 700;
+  }
+
+  .stack-label {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin: 2.5rem 0 1rem;
+  }
+
+  .stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 3rem;
+  }
+
+  .stack-tags span {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: #c0c0c0;
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.85rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .stack-tags span:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .connect-section {
+    border-top: 1px solid var(--border);
+    padding-top: 2rem;
+  }
+
+  .connect-section h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+  }
+
+  .connect-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .connect-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .connect-icon.linkedin { background: #0077b5; }
+  .connect-icon.github   { background: #333; }
+  .connect-icon.email    { background: var(--accent); }
+
+  .connect-info { flex: 1; }
+
+  .connect-name {
+    font-family: var(--font-head);
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #ffffff;
+  }
+
+  .connect-handle {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: #888;
+  }
+
+  .connect-link {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.35rem 0.9rem;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+  }
+  .connect-link:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
+<div class="about-section">
 
-<section class="about-wrap">
+  <h1>About <em>me</em></h1>
 
-  <div class="about-header">
-    <h1>About <em>me</em></h1>
+  <p>
+    I'm <strong>Anmol Sriwastava</strong>. Currently, a Statistical Data Science student at the
+    Indian Statistical Institute (ISI), Kolkata.
+  </p>
+
+  <p>
+    My interest sits at the intersection of <strong>ML, AI and Data</strong>, complemented
+    with mathematical rigour. Not just running models but actually understanding what is
+    happening underneath and using those foundations to build things that work.
+  </p>
+
+  <p>
+    I do not want to spend my time only inside academics and theory. Theory matters, but
+    it should lead somewhere. I want to build tools, systems and machines. 
+    
+  </p>
+
+  
+
+  <p>
+    This site is where I put things I learn and build. Notes, project writeups, and
+    writing on topics I find interesting. I write about <strong>Algorithms, Machine Learning,
+    Applied AI and AI Research</strong>, and occasionally robotics and IoT when something
+    worth writing about comes up as I spent a good chunk of time with Arduino, sensors and
+    circuits in my school and built a lot of small robotics and IoT projects,and learned more from 
+    that than from most formal coursework. 
+
+  <p>
+    Always open to collaborating, contributing or just talking about something interesting.
+  </p>
+
+  <span class="stack-label">Tech Stack</span>
+  <div class="stack-tags">
+    <span>Python</span>
+    <span>C++</span>
+    <span>SQL</span>
+    <span>R</span>
+    <span>Git</span>
+    <span>LaTeX</span>
+    <span>NumPy</span>
+    <span>Pandas</span>
+    <span>Scikit-learn</span>
+    <span>Matplotlib</span>
+    <span>PyTorch</span>
+    
+    <span>Jupyter Notebooks</span>
   </div>
 
-  <div class="about-body">
-    <div class="about-text">
-      <p>
-        I'm Anmol Sriwastava — a Statistical Data Science student at the
-        Indian Statistical Institute (ISI), Kolkata.
-      </p>
-      <p>
-        This site is my digital space where I share what I learn —
-        structured notes, project writeups, IoT experiments, and occasional
-        long-form thoughts on math, CS and AI.
-      </p>
-      <p>
-        I'm open to contributing and collaborating. If something here is
-        useful to you, or you want to work on something together, reach out.
-      </p>
+  <div class="connect-section">
+    <h3>Connect with me</h3>
 
-      <div class="about-stack">
-        <p class="currently-label">tech stack</p>
-        <div class="tags">
-          <span>Python</span>
-          <span>Flask</span>
-          <span>SQL</span>
-          <span>Git</span>
-          <span>Arduino</span>
-          <span>Raspberry Pi</span>
-          <span>LaTeX</span>
-          <span>IoT</span>
-        </div>
+    <div class="connect-row">
+      <div class="connect-icon linkedin"><i class="fab fa-linkedin-in"></i></div>
+      <div class="connect-info">
+        <div class="connect-name">LinkedIn</div>
+        <div class="connect-handle">Anmol Sriwastava</div>
       </div>
-
-      <div class="about-links">
-        <a href="https://github.com/anmolsriwastava" target="_blank" class="btn-primary">github</a>
-        <a href="/gyaan" class="btn-ghost">read my notes →</a>
-      </div>
+      <a href="https://www.linkedin.com/in/anmol-sriwastava/" target="_blank" class="connect-link">Connect</a>
     </div>
+
+    <div class="connect-row">
+      <div class="connect-icon github"><i class="fab fa-github"></i></div>
+      <div class="connect-info">
+        <div class="connect-name">GitHub</div>
+        <div class="connect-handle">@anmolsriwastava</div>
+      </div>
+      <a href="https://github.com/anmolsriwastava" target="_blank" class="connect-link">Follow</a>
+    </div>
+
+    <div class="connect-row">
+      <div class="connect-icon email"><i class="fas fa-envelope"></i></div>
+      <div class="connect-info">
+        <div class="connect-name">Email</div>
+        <div class="connect-handle">anmol.isik@gmail.com</div>
+      </div>
+      <a href="mailto:anmol.isik@gmail.com" class="connect-link">Mail</a>
+    </div>
+
   </div>
 
-</section>
-
+</div>
 {% endblock %}

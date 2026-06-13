@@ -443,9 +443,9 @@ main {
 
 /* ── Footer ────────────────────────────────── */
 .site-footer {
-  background: var(--heading);
-  color: #aaa;
+  background: #ffffff;
   padding: 2rem 0;
+  border-top: 1px solid #2a2a2a;
 }
 .footer-inner {
   max-width: 1200px;
@@ -460,7 +460,7 @@ main {
 .site-footer p {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #888;
+  color: #666666;
   margin: 0;
 }
 .footer-links {
@@ -470,16 +470,10 @@ main {
 .footer-links a {
   font-family: var(--font-mono);
   font-size: 0.78rem;
-  color: #888;
+  color: #666666;
   transition: color 0.2s;
 }
 .footer-links a:hover { color: var(--accent); }
-
-/* ── Container override ────────────────────── */
-.container {
-  max-width: 1200px;
-}
-
 /* ── Responsive ────────────────────────────── */
 @media (max-width: 768px) {
   .nav-links {
