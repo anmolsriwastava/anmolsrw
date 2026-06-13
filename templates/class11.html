@@ -1,46 +1,372 @@
 {% extends "base.html" %}
+{% block title %}Class 11 CS · Anmol Sriwastava{% endblock %}
+
 {% block extra_css %}
 <style>
-  body { background: #f5f5f5 !important; color: #1a1a1a !important; }
-  main { background: #f5f5f5; }
+  .class11-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 2rem 80px;
+  }
+
+  .class11-wrap h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .class11-wrap .lead {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 2.5rem;
+  }
+
+  .sec-block {
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .sec-block h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--heading);
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-light);
+    margin: 0;
+  }
+
+  .sec-block .sec-body {
+    padding: 0;
+  }
+
+  .dark-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+
+  .dark-table th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    padding: 0.8rem 1.25rem;
+    border-bottom: 2px solid var(--border);
+    text-align: left;
+  }
+
+  .dark-table th:last-child,
+  .dark-table td:last-child {
+    text-align: right;
+  }
+
+  .dark-table td {
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+  }
+
+  .dark-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .dark-table tbody tr:hover td {
+    background: rgba(255,255,255,0.03);
+  }
+
+  .dark-table .total-row td {
+    font-weight: 700;
+    color: var(--heading);
+    background: var(--bg-light);
+  }
+
+  .marks-badge {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--heading);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.7rem;
+    border-radius: 3px;
+  }
+
+  .total-row .marks-badge {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .ch-title {
+    font-weight: 600;
+    color: var(--heading);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .ch-desc {
+    font-size: 0.82rem;
+    color: var(--text);
+    opacity: 0.7;
+  }
+
+  .view-link {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.35rem 0.9rem;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .view-link:hover {
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+  }
+
+  .coming-soon {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text);
+    opacity: 0.5;
+    font-style: italic;
+  }
+
+  .resource-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .resource-list li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    display: block;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+
+  .resource-list a:hover {
+    color: var(--heading);
+    padding-left: 1.5rem;
+  }
+
+  .resource-list a::before {
+    content: "→";
+    margin-right: 0.6rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .two-col { grid-template-columns: 1fr; }
+    .dark-table th, .dark-table td { padding: 0.75rem 1rem; font-size: 0.85rem; }
+    .class11-wrap { padding: 30px 1rem 60px; }
+  }
 </style>
 {% endblock %}
 
 {% block content %}
-<div class="page-header">
-    <h1><i class="fas fa-code"></i> Class 11 Computer Science Notes</h1>
-    <p class="lead">Fundamentals of Computer Science and Python Programming</p>
-</div>
+<div class="class11-wrap">
 
-<div class="alert alert-info">
-    <i class="fas fa-lightbulb"></i> This section is for Class 11 notes. Upload your notes to share with others!
-</div>
+  <h1>Class 11 Computer Science</h1>
+  <p class="lead">CBSE Class 11 Computer Science with Python — complete notes and resources.</p>
 
-<div class="row">
-    {% if notes %}
-        {% for note in notes %}
-        <div class="col-md-6 mb-4">
-            <div class="card h-100">
-                <div class="card-body">
-                    <h5>{{ note.title }}</h5>
-                    <p>{{ note.description }}</p>
-                    <a href="{{ url_for('static', filename='uploads/' + note.filename) }}" 
-                       class="btn btn-sm btn-success" download>
-                        <i class="fas fa-download"></i> Download
-                    </a>
-                </div>
-            </div>
-        </div>
-        {% endfor %}
-    {% else %}
-        <div class="col-12 text-center py-5">
-            <i class="fas fa-folder-open fa-4x text-muted mb-3"></i>
-            <h4>No Class 11 Notes Yet</h4>
-            <p>Be the first to upload Class 11 Computer Science notes!</p>
-            <a href="/upload" class="btn btn-lg btn-success">
-                <i class="fas fa-cloud-upload-alt"></i> Upload Notes
-            </a>
-        </div>
-    {% endif %}
+  <!-- Mark Distribution -->
+  <div class="sec-block">
+    <h3>Mark Distribution</h3>
+    <div class="sec-body">
+      <table class="dark-table">
+        <thead>
+          <tr>
+            <th>Unit No.</th>
+            <th>Unit Name</th>
+            <th>Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Computer Systems and Organisation</td>
+            <td><span class="marks-badge">10</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Computational Thinking and Programming - 1</td>
+            <td><span class="marks-badge">45</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Society, Law, and Ethics</td>
+            <td><span class="marks-badge">15</span></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="2" style="text-align:right;">Total</td>
+            <td><span class="marks-badge">70</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Chapter-wise Notes -->
+  <div class="sec-block">
+    <h3>Chapter-wise Notes</h3>
+    <div class="sec-body">
+      <table class="dark-table">
+        <thead>
+          <tr>
+            <th style="width:50px;">Ch</th>
+            <th>Chapter</th>
+            <th style="width:130px;">Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>
+              <span class="ch-title">Computer Systems and Organisation</span>
+              <span class="ch-desc">Introduction to computer systems, hardware, software, data representation</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              <span class="ch-title">Introduction to Problem Solving</span>
+              <span class="ch-desc">Algorithms, flowcharts, problem-solving techniques</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>
+              <span class="ch-title">Getting Started with Python</span>
+              <span class="ch-desc">Python installation, IDE, first program, basic syntax</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              <span class="ch-title">Python Fundamentals</span>
+              <span class="ch-desc">Variables, data types, operators, expressions</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>
+              <span class="ch-title">Data Handling</span>
+              <span class="ch-desc">Input/output, type conversion, math module</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>
+              <span class="ch-title">Conditional and Iterative Statements</span>
+              <span class="ch-desc">if-else, for, while, break, continue</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>
+              <span class="ch-title">Strings</span>
+              <span class="ch-desc">String operations, slicing, methods, formatting</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>
+              <span class="ch-title">Lists</span>
+              <span class="ch-desc">List operations, methods, list comprehension</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>
+              <span class="ch-title">Tuples</span>
+              <span class="ch-desc">Tuple operations, immutability, tuple methods</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>
+              <span class="ch-title">Dictionary</span>
+              <span class="ch-desc">Dictionary operations, methods, nested dictionaries</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>
+              <span class="ch-title">Introduction to Modules</span>
+              <span class="ch-desc">Importing modules, standard library, custom modules</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>
+              <span class="ch-title">Society, Law and Ethics</span>
+              <span class="ch-desc">Cyber safety, IPR, privacy, digital footprint</span>
+            </td>
+            <td><span class="coming-soon">Coming soon</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Bottom two columns -->
+  <div class="two-col">
+    <div class="sec-block">
+      <h3>Sample Papers</h3>
+      <div class="sec-body">
+        <ul class="resource-list">
+          <li><a href="#">CBSE Sample Paper 2024</a></li>
+          <li><a href="#">Previous Year Paper 2023</a></li>
+          <li><a href="#">Important Questions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec-block">
+      <h3>Video Resources</h3>
+      <div class="sec-body">
+        <ul class="resource-list">
+          <li><a href="#">Python Tutorial Series</a></li>
+          <li><a href="#">Problem Solving Techniques</a></li>
+          <li><a href="#">Computer Organisation Basics</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
 </div>
 {% endblock %}

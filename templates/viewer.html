@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% block title %}View Notes · Anmol Sriwastava{% endblock %}
+
+{% block extra_css %}
+<style>
+  .viewer-wrap {
+    display: flex;
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 2rem 40px;
+    min-height: calc(100vh - 70px);
+  }
+
+  /* Ad sidebar */
+  .ad-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .ad-slot {
+    border: 1px solid var(--border);
+    background: var(--bg-light);
+    min-height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .ad-slot-label {
+    color: var(--accent);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  /* PDF container */
+  .pdf-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .pdf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    background: var(--bg-light);
+  }
+
+  .pdf-header h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--heading);
+    margin: 0;
+  }
+
+  .pdf-header .back-link {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    transition: color 0.2s;
+  }
+  .pdf-header .back-link:hover { color: var(--heading); }
+
+  .pdf-frame {
+    flex: 1;
+    border: 1px solid var(--border);
+    background: #fff;
+    min-height: 600px;
+  }
+
+  .pdf-frame iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    border: none;
+    display: block;
+  }
+
+  /* Top ad banner */
+  .ad-top {
+    width: 100%;
+    max-width: 728px;
+    margin: 0 auto 1rem;
+    min-height: 90px;
+    border: 1px solid var(--border);
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  /* Related links */
+  .related-bar {
+    border: 1px solid var(--border);
+    padding: 1rem 1.25rem;
+    background: var(--bg-light);
+  }
+
+  .related-bar h4 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--heading);
+    margin-bottom: 0.75rem;
+  }
+
+  .related-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .related-links a {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 0.4rem 0.9rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .related-links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* Mobile */
+  @media (max-width: 1100px) {
+    .viewer-wrap {
+      flex-direction: column;
+      padding: 20px 1rem 40px;
+    }
+    .ad-sidebar {
+      width: 100%;
+      flex-direction: row;
+      justify-content: center;
+    }
+    .ad-slot {
+      width: 300px;
+      min-height: 250px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .ad-sidebar { display: none; }
+    .pdf-frame iframe { min-height: 500px; }
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<!-- Top Ad Banner -->
+<div class="ad-top">
+  <div>
+    <div class="ad-slot-label"></div>
+    <!-- PASTE YOUR AD CODE HERE (728x90) -->
+    <div></div>
+  </div>
+</div>
+
+<div class="viewer-wrap">
+
+  <!-- Left Sidebar Ads -->
+  <aside class="ad-sidebar">
+    <div class="ad-slot">
+      <div>
+        <div class="ad-slot-label"></div>
+        <!-- PASTE YOUR AD CODE HERE (300x250) -->
+        <div></div>
+      </div>
+    </div>
+    <div class="ad-slot">
+      <div>
+        <div class="ad-slot-label"></div>
+        <!-- PASTE YOUR AD CODE HERE (300x250) -->
+        <div></div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- PDF Viewer -->
+  <div class="pdf-main">
+    <div class="pdf-header">
+      <h2>📄 {{ pdf_path.split('/')[-1].replace('_', ' ').replace('.pdf', '') }}</h2>
+      <a href="javascript:history.back()" class="back-link">← Back to notes</a>
+    </div>
+    <div class="pdf-frame">
+      <iframe src="{{ url_for('static', filename=pdf_path) }}" title="PDF Viewer"></iframe>
+    </div>
+    <div class="related-bar">
+      <h4>More chapters</h4>
+      <div class="related-links">
+        <a href="/class12">Class 12 CS</a>
+        <a href="/class11">Class 11 CS</a>
+        <a href="/class10">Class 10 IT</a>
+        <a href="/resources">All Resources</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

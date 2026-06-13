@@ -1,209 +1,394 @@
 {% extends "base.html" %}
+{% block title %}Class 12 CS · Anmol Sriwastava{% endblock %}
+
 {% block extra_css %}
 <style>
-  body { background: #fff; color: #333; }
-  .notes-table { width: 100%; border-collapse: collapse; }
-  .notes-table th, .notes-table td { padding: 12px 16px; border-bottom: 1px solid #eee; }
-  .notes-table th { font-weight: 600; color: #666; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.5px; }
-  .notes-table tr:hover { background: #fafafa; }
-  .marks-badge { background: #f0f0f0; padding: 4px 10px; border-radius: 20px; font-weight: 500; }
-  .download-btn { color: #0066cc; text-decoration: none; font-size: 0.9rem; }
-  .download-btn:hover { text-decoration: underline; }
-  .coming-soon { color: #999; font-style: italic; font-size: 0.9rem; }
-  .section-card { border: 1px solid #eee; border-radius: 4px; margin-bottom: 24px; }
-  .section-card h3 { padding: 16px; margin: 0; border-bottom: 1px solid #eee; font-size: 1.1rem; }
-  .section-card .content { padding: 16px; }
-  .resource-link { display: block; padding: 8px 0; color: #444; text-decoration: none; }
-  .resource-link:hover { color: #0066cc; }
-  .total-row { background: #fafafa; font-weight: 600; }
+  .class12-wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 2rem 80px;
+  }
+
+  .class12-wrap h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+
+  .class12-wrap .lead {
+    font-size: 1rem;
+    color: var(--text);
+    margin-bottom: 2.5rem;
+  }
+
+  .sec-block {
+    border: 1px solid var(--border);
+    margin-bottom: 2rem;
+  }
+
+  .sec-block h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--heading);
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-light);
+    margin: 0;
+  }
+
+  .sec-block .sec-body {
+    padding: 0;
+    overflow-x: auto;
+  }
+
+  .dark-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 600px;
+  }
+
+  .dark-table th {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text);
+    padding: 0.75rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+
+  .dark-table th:last-child,
+  .dark-table td:last-child {
+    text-align: right;
+  }
+
+  .dark-table td {
+    padding: 0.85rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: top;
+  }
+
+  .dark-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .dark-table tr:hover td {
+    background: rgba(255,255,255,0.02);
+  }
+
+  .dark-table .total-row td {
+    font-weight: 700;
+    color: var(--heading);
+    background: var(--bg-light);
+  }
+
+  .marks-badge {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--heading);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.7rem;
+    border-radius: 3px;
+  }
+
+  .total-row .marks-badge {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .ch-title {
+    font-weight: 600;
+    color: var(--heading);
+    display: block;
+    margin-bottom: 0.15rem;
+  }
+
+  .ch-desc {
+    font-size: 0.82rem;
+    color: var(--text);
+    opacity: 0.7;
+  }
+
+  .view-link {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 0.35rem 0.9rem;
+    transition: background 0.2s, color 0.2s;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  .view-link:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .coming-soon {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--text);
+    opacity: 0.5;
+    font-style: italic;
+  }
+
+  .resource-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .resource-list li {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .resource-list li:last-child {
+    border-bottom: none;
+  }
+
+  .resource-list a {
+    display: block;
+    padding: 0.85rem 1.25rem;
+    font-size: 0.9rem;
+    color: var(--text);
+    transition: color 0.2s, padding-left 0.2s;
+  }
+
+  .resource-list a:hover {
+    color: var(--heading);
+    padding-left: 1.5rem;
+  }
+
+  .resource-list a::before {
+    content: "→";
+    margin-right: 0.6rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Mobile */
+  @media (max-width: 768px) {
+    .class12-wrap { padding: 30px 1rem 60px; }
+    .two-col { grid-template-columns: 1fr; }
+
+    .dark-table th, .dark-table td { 
+      padding: 0.7rem 0.8rem; 
+      font-size: 0.85rem; 
+    }
+    .dark-table th { font-size: 0.65rem; }
+
+    .view-link {
+      font-size: 0.7rem;
+      padding: 0.3rem 0.6rem;
+    }
+
+    .ch-title { font-size: 0.95rem; }
+    .ch-desc { font-size: 0.78rem; }
+
+    /* Hide weightage column on mobile */
+    .dark-table th:nth-child(4),
+    .dark-table td:nth-child(4) {
+      display: none;
+    }
+
+    .dark-table {
+      min-width: unset;
+    }
+  }
 </style>
 {% endblock %}
 
 {% block content %}
-<h2>Class 12 Computer Science Notes</h2>
-<p>CBSE Class 12 Computer Science with Python — complete notes and resources.</p>
+<div class="class12-wrap">
 
-<!-- Mark Distribution -->
-<div class="section-card">
-  <h3>CBSE Mark Distribution</h3>
-  <div class="content">
-    <table class="notes-table">
-      <thead>
-        <tr>
-          <th>Unit</th>
-          <th>Unit Name</th>
-          <th>Marks</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>Computational Thinking and Programming – 2</td>
-          <td><span class="marks-badge">40</span></td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>Computer Networks</td>
-          <td><span class="marks-badge">10</span></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>Database Management</td>
-          <td><span class="marks-badge">20</span></td>
-        </tr>
-        <tr class="total-row">
-          <td colspan="2" style="text-align: right;">Total</td>
-          <td><span class="marks-badge">70</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
+  <h1>Class 12 Computer Science</h1>
+  <p class="lead">CBSE Class 12 Computer Science with Python — complete notes and resources.</p>
 
-<!-- Chapter-wise Notes -->
-<div class="section-card">
-  <h3>Chapter-wise Notes</h3>
-  <div class="content">
-    <table class="notes-table">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>Chapter</th>
-          <th>Notes</th>
-          <th>Weightage</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          <td>
-            <strong>Revision Tour - 1</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">Python basics, variables, data types, operators</span>
-          </td>
-          <td>
-            <a href="{{ url_for('static', filename='notes/Python_Revision_Tour_1.pdf') }}" class="download-btn" onclick="openPDF(this.href); return false;">View Notes</a>
-          </td>
-          <td>~8 marks</td>
-        </tr>
-        <tr>
-          <td>2</td>
-          <td>
-            <strong>Revision Tour - 2</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">Control structures, loops, functions basics</span>
-          </td>
-          <td><span class="coming-soon">Coming soon</span></td>
-          <td>~7 marks</td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>
-            <strong>Functions</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">User-defined functions, parameters, recursion</span>
-          </td>
-          <td><span class="coming-soon">Coming soon</span></td>
-          <td>~10 marks</td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>
-            <strong>File Handling</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">Text files, binary files, file operations</span>
-          </td>
-          <td><span class="coming-soon">Coming soon</span></td>
-          <td>~8 marks</td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>
-            <strong>Exception Handling</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">try-except, finally, custom exceptions</span>
-          </td>
-          <td><span class="coming-soon">Coming soon</span></td>
-          <td>~5 marks</td>
-        </tr>
-        <tr>
-          <td>6</td>
-          <td>
-            <strong>Data Structures: Stack</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">LIFO, push/pop operations, applications</span>
-          </td>
-          <td><span class="coming-soon">Coming soon</span></td>
-          <td>~7 marks</td>
-        </tr>
-        <tr>
-          <td>7</td>
-          <td>
-            <strong>Database Management: MySQL</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">SQL commands, queries, normalization</span>
-          </td>
-          <td><span class="coming-soon">Coming soon</span></td>
-          <td>~12 marks</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>
-            <strong>Python-Database Interaction</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">MySQL connector, CRUD operations</span>
-          </td>
-          <td><span class="coming-soon">Coming soon</span></td>
-          <td>~8 marks</td>
-        </tr>
-        <tr>
-          <td>9</td>
-          <td>
-            <strong>Computer Networks - 1</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">Network types, topologies, protocols</span>
-          </td>
-          <td><span class="coming-soon">Coming soon</span></td>
-          <td>~5 marks</td>
-        </tr>
-        <tr>
-          <td>10</td>
-          <td>
-            <strong>Computer Networks - 2</strong><br>
-            <span style="color: #666; font-size: 0.9rem;">Network devices, security, internet</span>
-          </td>
-          <td><span class="coming-soon">Coming soon</span></td>
-          <td>~5 marks</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- Resources -->
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
-  <div class="section-card">
-    <h3>Sample Papers</h3>
-    <div class="content">
-      <a href="#" class="resource-link">CBSE Sample Paper 2024</a>
-      <a href="#" class="resource-link">Previous Year Paper 2023</a>
-      <a href="#" class="resource-link">Important Questions</a>
+  <!-- Mark Distribution -->
+  <div class="sec-block">
+    <h3>Mark Distribution</h3>
+    <div class="sec-body">
+      <table class="dark-table">
+        <thead>
+          <tr>
+            <th>Unit</th>
+            <th>Unit Name</th>
+            <th>Marks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Computational Thinking and Programming – 2</td>
+            <td><span class="marks-badge">40</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Computer Networks</td>
+            <td><span class="marks-badge">10</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Database Management</td>
+            <td><span class="marks-badge">20</span></td>
+          </tr>
+          <tr class="total-row">
+            <td colspan="2" style="text-align:right;">Total</td>
+            <td><span class="marks-badge">70</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  
-  <div class="section-card">
-    <h3>Video Resources</h3>
-    <div class="content">
-      <a href="#" class="resource-link">Python Tutorial Series</a>
-      <a href="#" class="resource-link">MySQL Complete Course</a>
-      <a href="#" class="resource-link">Networking Concepts</a>
+
+  <!-- Chapter-wise Notes -->
+  <div class="sec-block">
+    <h3>Chapter-wise Notes</h3>
+    <div class="sec-body">
+      <table class="dark-table">
+        <thead>
+          <tr>
+            <th style="width:40px;">#</th>
+            <th>Chapter</th>
+            <th style="width:100px;">Notes</th>
+            <th style="width:100px;">Weightage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>
+              <span class="ch-title">Revision Tour - 1</span>
+              <span class="ch-desc">Python basics, variables, data types, operators</span>
+            </td>
+            <td>
+              <a href="/view/notes/Python_Revision_Tour_1.pdf" class="view-link">View</a>
+            </td>
+            <td>~8 marks</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>
+              <span class="ch-title">Revision Tour - 2</span>
+              <span class="ch-desc">Control structures, loops, functions basics</span>
+            </td>
+            <td><span class="coming-soon">Soon</span></td>
+            <td>~7 marks</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>
+              <span class="ch-title">Functions</span>
+              <span class="ch-desc">User-defined functions, parameters, recursion</span>
+            </td>
+            <td><span class="coming-soon">Soon</span></td>
+            <td>~10 marks</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>
+              <span class="ch-title">File Handling</span>
+              <span class="ch-desc">Text files, binary files, file operations</span>
+            </td>
+            <td><span class="coming-soon">Soon</span></td>
+            <td>~8 marks</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>
+              <span class="ch-title">Exception Handling</span>
+              <span class="ch-desc">try-except, finally, custom exceptions</span>
+            </td>
+            <td><span class="coming-soon">Soon</span></td>
+            <td>~5 marks</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>
+              <span class="ch-title">Data Structures: Stack</span>
+              <span class="ch-desc">LIFO, push/pop operations, applications</span>
+            </td>
+            <td><span class="coming-soon">Soon</span></td>
+            <td>~7 marks</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>
+              <span class="ch-title">Database Management: MySQL</span>
+              <span class="ch-desc">SQL commands, queries, normalization</span>
+            </td>
+            <td><span class="coming-soon">Soon</span></td>
+            <td>~12 marks</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>
+              <span class="ch-title">Python-Database Interaction</span>
+              <span class="ch-desc">MySQL connector, CRUD operations</span>
+            </td>
+            <td><span class="coming-soon">Soon</span></td>
+            <td>~8 marks</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>
+              <span class="ch-title">Computer Networks - 1</span>
+              <span class="ch-desc">Network types, topologies, protocols</span>
+            </td>
+            <td><span class="coming-soon">Soon</span></td>
+            <td>~5 marks</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>
+              <span class="ch-title">Computer Networks - 2</span>
+              <span class="ch-desc">Network devices, security, internet</span>
+            </td>
+            <td><span class="coming-soon">Soon</span></td>
+            <td>~5 marks</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-</div>
-<!-- PDF Viewer Modal -->
-<div id="pdfModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999;">
-  <div style="position:relative; width:90%; height:90%; margin:2% auto; background:#fff;">
-    <button onclick="document.getElementById('pdfModal').style.display='none'" 
-            style="position:absolute; top:-35px; right:0; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer;">✕ close</button>
-    <iframe id="pdfFrame" src="" width="100%" height="100%" style="border:none;"></iframe>
-  </div>
-</div>
 
-<script>
-function openPDF(url) {
-  document.getElementById('pdfFrame').src = url;
-  document.getElementById('pdfModal').style.display = 'block';
-}
-</script>
+  <!-- Bottom two columns -->
+  <div class="two-col">
+    <div class="sec-block">
+      <h3>Sample Papers</h3>
+      <div class="sec-body">
+        <ul class="resource-list">
+          <li><a href="#">CBSE Sample Paper 2024</a></li>
+          <li><a href="#">Previous Year Paper 2023</a></li>
+          <li><a href="#">Important Questions</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="sec-block">
+      <h3>Video Resources</h3>
+      <div class="sec-body">
+        <ul class="resource-list">
+          <li><a href="#">Python Tutorial Series</a></li>
+          <li><a href="#">MySQL Complete Course</a></li>
+          <li><a href="#">Networking Concepts</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
 {% endblock %}

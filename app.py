@@ -65,6 +65,14 @@ def blog():
 def about():
     return render_template('about.html')
 
+@app.route('/privacy')
+def privacy():
+    return render_template('privacy.html')
+
+@app.route('/view/<path:pdf_path>')
+def view_pdf(pdf_path):
+    return render_template('viewer.html', pdf_path=pdf_path)
+
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port, debug=False)
