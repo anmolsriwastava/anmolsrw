@@ -57,6 +57,10 @@ def iot():
 def projects():
     return render_template('projects.html')
 
+@app.route('/projects/count-min-sketch')
+def count_min_sketch():
+    return render_template('count_min_sketch.html')
+
 @app.route('/blog')
 def blog():
     return render_template('blog.html')
